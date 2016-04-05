@@ -1,24 +1,16 @@
+Welcome to the College Portal!
 
-     ,-----.,--.                  ,--. ,---.   ,--.,------.  ,------.
-    '  .--./|  | ,---. ,--.,--. ,-|  || o   \  |  ||  .-.  \ |  .---'
-    |  |    |  || .-. ||  ||  |' .-. |`..'  |  |  ||  |  \  :|  `--, 
-    '  '--'\|  |' '-' ''  ''  '\ `-' | .'  /   |  ||  '--'  /|  `---.
-     `-----'`--' `---'  `----'  `---'  `--'    `--'`-------' `------'
-    ----------------------------------------------------------------- 
+This is a web app created on Rails by Yash Sharma for Backbone competition in Aparoksha 2016.
 
+In this application, registered users can-
 
-Welcome to your Rails project on Cloud9 IDE!
+1. Create Lost, found or other posts.
+2. Comment on others post.
 
-To get started, just do the following:
+Unregistered users can only view the posts but cannot participate in the discussion.
 
-1. Run the project with the "Run Project" button in the menu bar on top of the IDE.
-2. Preview your new app by clicking on the URL that appears in the Run panel below (https://college-portal-yashsharma260.c9users.io/).
+Each user has a profile page having his gravatar profile image and list of all the posts by that user.
 
-Happy coding!
-The Cloud9 IDE team
+All the views are paginated, so each page won't display more than 5 posts.
 
-
-## Support & Documentation
-
-Visit http://docs.c9.io for support, or to learn more about using Cloud9 IDE. 
-To watch some training videos, visit http://www.youtube.com/user/c9ide
+Thank you.
