@@ -2,31 +2,37 @@
 
 <h1>Listing Posts</h1>
 
-<table>
-  <thead>
-    <tr>
-      <th>Title</th>
-      <th>Category</th>
-      <th>Description</th>
-      <th>Added by</th>
-      <th colspan="3"></th>
-    </tr>
-  </thead>
+    
 
-  <tbody>
-    <% @posts.each do |post| %>
-      <tr>
-        <td><%= post.title %></td>
-        <td><%= post.category %></td>
-        <td><%= post.description %></td>
-        <td><%= User.find(post.user_id).roll_number if  post.user_id %></td>
-        <td><%= link_to 'Show', post %></td>
-        <td><%= link_to 'Edit', edit_post_path(post) %></td>
-        <td><%= link_to 'Destroy', post, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-      </tr>
-    <% end %>
-  </tbody>
-</table>
+<% @posts.each do |post| %>
+  <div class="well">
+    <p>
+      <strong>Title:</strong>
+      <%= post.title %>
+    </p>
+    
+    <p>
+      <strong>Category:</strong>
+      <%= post.category.capitalize %>
+      
+    </p>
+    
+    <p>
+      <strong>Description:</strong>
+      <%= truncate(post.description, length: 100) %>
+    </p>
+    
+    <p>
+      <strong>Added by</strong>
+      <%= link_to User.find(post.user_id).roll_number, user_path(post.user) %>
+    </p>
+    <%= link_to 'Show', post_path(post) %>
+    <%= link_to 'Edit', edit_post_path(post) if user_signed_in? && current_user.id==post.user_id %> 
+    
+  </div>
+  <hr/>
+<% end %>
+
 
 <br>
 

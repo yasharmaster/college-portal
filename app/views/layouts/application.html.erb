@@ -52,7 +52,7 @@
             <li><%= link_to "Found", "#"  %></li>
             <li><%= link_to "Others", "#"  %></li>
             <% if user_signed_in? %>
-              <li><%= link_to "Add new post", "#"  %></li>
+              <li><%= link_to "Add new post", new_post_path %></li>
               <li><%= link_to "Your Profile #{ current_user.roll_number }", user_path(current_user)  %></li>
               <li><%= link_to "Edit your details", edit_user_registration_path %></li>
               <li style="float:right;"><%= link_to "Logout", destroy_user_session_path, method: :delete %></li>
