@@ -1,10 +1,5 @@
-<p id="notice"><%= notice %></p>
 
-<h2 >Listing All Posts</h2>
-
-    
-<%= will_paginate @posts %>
-<% @posts.each do |post| %>
+<% @var.each do |post| %>
   <div class="well">
     <p>
       <strong>Title:</strong>
@@ -32,7 +27,6 @@
   </div>
   <hr/>
 <% end %>
-<%= will_paginate @posts %>
 
 <br>
 

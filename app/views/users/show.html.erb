@@ -4,3 +4,35 @@
         <%= gravatar_for @user, size: 150 %>
     </div>
 </div>
+<br/>
+<h3>All posts by <%= @user.roll_number %></h3>
+<%= will_paginate @user_posts %>
+<% @user_posts.each do |post| %>
+  <div class="well">
+    <p>
+      <strong>Title:</strong>
+      <%= post.title %>
+    </p>
+    
+    <p>
+      <strong>Category:</strong>
+      <%= post.category.capitalize %>
+      
+    </p>
+    
+    <p>
+      <strong>Description:</strong>
+      <%= truncate(post.description, length: 100) %>
+    </p>
+    
+    <p>
+      <strong>Added by</strong>
+      <%= link_to User.find(post.user_id).roll_number, user_path(post.user) %>
+    </p>
+    <%= link_to 'Show', post_path(post) %>
+    <%= link_to 'Edit', edit_post_path(post) if user_signed_in? && current_user.id==post.user_id %> 
+    
+  </div>
+  <hr/>
+<% end %>
+<%= will_paginate @user_posts %>
