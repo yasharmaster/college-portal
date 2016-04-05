@@ -26,9 +26,18 @@
       <strong>Added by</strong>
       <%= link_to User.find(post.user_id).roll_number, user_path(post.user) %>
     </p>
+    <div class="post-meta-details">
+        <small>Created:
+            <%= time_ago_in_words(post.created_at) %> ago, 
+            last updated: <%= time_ago_in_words(post.updated_at) %> ago
+        </small>
+    </div>
     <%= link_to 'Show', post_path(post) %>
-    <%= link_to 'Edit', edit_post_path(post) if user_signed_in? && current_user.id==post.user_id %> 
-    
+    <% if user_signed_in? && current_user.id==post.user_id %>
+      <%= link_to 'Edit', edit_post_path(post) %> 
+      <%= link_to "Delete this post", post_path(post), method: :delete, 
+                                                data: { confirm: "Are you sure you want to delete the post?"}, 
+                                                class: "btn btn-xs btn-danger" %> <% end %>
   </div>
   <hr/>
 <% end %>
